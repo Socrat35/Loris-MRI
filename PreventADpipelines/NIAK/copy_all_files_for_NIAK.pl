@@ -12,9 +12,9 @@ my $NIAK_FOLDER="/data/preventAD/data/pipelines/NIAK/DATA";
 
 #my $t='0';
 
-my @new_T1s=`/usr/bin/find ${DATA_TO_TRANSFER} -type f -name "PreventAD_[0-9][0-9][0-9][0-9][0-9][0-9]_[N,P,Y][A,R,N][P,E,G][B,F,V][L,U,I][0-9][0-9]_adniT1_[0-9][0-9][0-9].mnc"`;
+my @new_T1s=`/usr/bin/find ${DATA_TO_TRANSFER} -type f -name "PreventAD_[0-9][0-9][0-9][0-9][0-9][0-9]_[N,P,Y,M,C][A,R,N,C,T][P,E,G,L,I][B,F,V][L,U,I][0-9][0-9]_adniT1_[0-9][0-9][0-9].mnc"`;
 
-my @new_RSNs=`/usr/bin/find ${DATA_TO_TRANSFER} -type f -name "PreventAD_[0-9][0-9][0-9][0-9][0-9][0-9]_[N,P,Y][A,R,N][P,E,G][B,F,V][L,U,I][0-9][0-9]_Resting_[0-9][0-9][0-9].mnc"`;
+my @new_RSNs=`/usr/bin/find ${DATA_TO_TRANSFER} -type f -name "PreventAD_[0-9][0-9][0-9][0-9][0-9][0-9]_[N,P,Y,M,C][A,R,N,C,T][P,E,G,L,I][B,F,V][L,U,I][0-9][0-9]_Resting_[0-9][0-9][0-9].mnc"`;
 
 #my @new_ENCs=`/usr/bin/find ${DATA_TO_TRANSFER} -type f -name "PreventAD_[0-9][0-9][0-9][0-9][0-9][0-9]_[N,P][A,R][P,E][B,F][L,U][0-9][0-9]_Encoding_[0-9][0-9][0-9].mnc"`;
 
@@ -27,7 +27,7 @@ foreach my $new_t1(@new_T1s){
     chomp($new_t1);
     my $t1_name = basename($new_t1);
     print "$t1_name \n";
-    if($t1_name =~ /(PreventAD)_([0-9][0-9][0-9][0-9][0-9][0-9])_([N,P,Y][A,R,N][P,E,G][B,F,V][L,U,I][0-9][0-9])_(adniT1)_([0-9][0-9][0-9].mnc)/m) {
+    if($t1_name =~ /(PreventAD)_([0-9][0-9][0-9][0-9][0-9][0-9])_([N,P,Y,M,C][A,R,N,C,T][P,E,G,I,L][B,F,V][L,U,I][0-9][0-9])_(adniT1)_([0-9][0-9][0-9].mnc)/m) {
         my $DCCID = $2;
         my $visitLabel = $3;
         my $acquisition = "$4$5";
@@ -45,7 +45,7 @@ foreach my $new_rsn(@new_RSNs){
     chomp($new_rsn);
     my $rsn_name = basename($new_rsn);
     print "$rsn_name \n";
-    if($rsn_name =~ /(PreventAD)_([0-9][0-9][0-9][0-9][0-9][0-9])_([N,P,Y][A,R,N][P,E,G][B,F,V][L,U,I][0-9][0-9])_(Resting)_([0-9][0-9][0-9].mnc)/m) {
+    if($rsn_name =~ /(PreventAD)_([0-9][0-9][0-9][0-9][0-9][0-9])_([N,P,Y,M,C][A,R,N,T,C][P,E,G,I,L][B,F,V][L,U,I][0-9][0-9])_(Resting)_([0-9][0-9][0-9].mnc)/m) {
         my $DCCID = $2;
         my $visitLabel = $3;
         my $acquisition = "$4$5";
